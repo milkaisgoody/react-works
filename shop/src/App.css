@@ -4,16 +4,77 @@
   padding: 20px;
 }
 .header a{
-  color: #fff;
+  color: yellowgreen;
   margin: 0 16px;
+  text-decoration: none;
+}
+/* 마우스 올라갔을 때 스타일 */
+.header a:hover{
+  color: #eee;
 }
 
 /* Main 스타일 */
-.main{padding: 20px;}
+
 
 /* 상품 목록 스타일 */
-.product-list{
-  width: 1000px;
+.product-list table{
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.product-list table thead{
+  background-color: #eee;
+}
+
+.product-list table th, td{
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+/* 상품 상세 페이지 스타일 */
+.product-info .detail{
+  width: 50%;
+  margin: 20px auto;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.product-info .detail p{
+  margin: 16px;
+}
+
+.product-info button{
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* 상품 등록 폼 */
+.add-product form{
+  width: 30%;
   margin: 20px auto;
 }
 
+.add-product form label{
+  display: block; /*수직배치*/
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.add-product form input,
+.add-product form textarea{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.add-product form textarea{
+  resize: vertical; /* 크기 조절 방향(수직) */
+}
+
+.add-product form button{
+  padding: 6px 12px;
+  cursor: pointer;
+}
