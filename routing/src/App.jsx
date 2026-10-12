@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Main from './pages/Main'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import Board from './pages/Board'
+import BoardDetail from './pages/BoardDetail'
 
 function App() {
 
@@ -18,6 +20,9 @@ function App() {
               <Route path='/' element={<Main />} />
               <Route path="/sign-in" element={<SignIn />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/board" element={<Board />} />
+              {/* 경로 변수 */}
+              <Route path="/board/:id" element={<BoardDetail />} />
             </Routes>
           </div>
         </BrowserRouter>
