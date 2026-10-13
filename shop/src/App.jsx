@@ -5,7 +5,7 @@ import Main from './layouts/Main'
 import Header from './layouts/Header'
 import ProductList from './products/ProductList'
 import ProductInfo from './products/ProductInfo'
-import AddProduct from './layouts/AddProduct'
+import AddProduct from './products/AddProduct'
 
 function App() {
 

@@ -40,6 +40,15 @@ const AddProduct = () => {
 
         alert("상품이 등록되었습니다.");
         navigate("/products"); //상품 등록 후 목록 페이지로 이동
+    }//handleSubmit() 닫기
+
+    const handleCancel = () => {
+        //입력 필드 초기화
+        setFormData({
+            name: '',
+            price: '',
+            description: ''
+        })
     }
 
     return(
@@ -57,6 +66,7 @@ const AddProduct = () => {
                         placeholder="상품명을 입력하세요"
                     />
                 </div>
+
                 <div>
                     <label htmlFor="price">가격</label>
                     <input 
@@ -76,11 +86,12 @@ const AddProduct = () => {
                         rows={5}
                         value={formData.description}
                         onChange={handleInputChange}
-                        placeholder="설명을 입력하세요"
+                        placeholder="상품 설명을 입력하세요"
                     />
                 </div>
                 <div>
                     <button type="submit">등록</button>
+                    <button type="button" onClick={handleCancel}>취소</button>
                 </div>
             </form>
         </div>
