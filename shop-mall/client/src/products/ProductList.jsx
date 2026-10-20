@@ -5,23 +5,39 @@ import { useEffect, useState } from "react";
 const ProductList = () => {
     const [products, setProducts] = useState([]);
 
-    //db에서 데이터 가져오기
+    // 검색 키워드 상태 관리 
+    const [searchKeyword, setSearchKeyword] = useState("");
+
+    // db에서 데이터 가져오기
     useEffect(() => {
         const fetchProducts = async () => {
             try{
-                //http://localhost:8000/api
+                //'http://localhost:8000/api/products'
                 const response = await api.get('/products');
-                setProducts(response.data) //data 속성 불러줌
+                setProducts(response.data) // data 속성 불러줌
             }catch(error){
-                console.log("상품 목록 조회 에러 : ", err)
+                console.log("상품 목록 조회 에러: ", err);
             }
         }
-        fetchProducts(); //함수 호출해야 실행됨
-    }, []); //최초 1번 렌더링 
+        fetchProducts();  //함수 호출해야 실행됨
+    }, []); //최초 1번 렌더링
+
+    // 검색된 상품(목록) 필터링 구현
+    const filterProducts = products.filter(product => 
+        product.product_name.toLowerCase().includes(searchKeyword.toLocaleLowerCase())
+    )
 
     return(
         <div className="product-list">
-            <h2>상품 리스트</h2>
+            {/* 검색 기능 */}
+            <div className="search-bar">
+                <input 
+                    type="text" 
+                    placeholder="상품명으로 검색"
+                    onChange={(e) => setSearchKeyword(e.target.value)}
+                />
+            </div>
+            {/* 상품 목록 */}
             <table>
                 <thead>
                     <tr>
@@ -29,22 +45,21 @@ const ProductList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                        {products.map((product) => (
-                            <tr key={product.id}>
-                                <td>{product.id}</td>
-                                <td>
-                                    <Link to={`/products/${product.id}`}>{product.product_name}</Link>
-                                </td>
-                                <td>{product.price}</td>
-                            </tr>
-                        ))}
-
+                    {filterProducts.map((product) => (
+                        <tr key={product.id}>
+                            <td>{product.id}</td>
+                            <td>
+                                <Link to={`/products/${product.id}`}>{product.product_name}</Link>
+                            </td>
+                            <td>{product.price}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <div className="btn-add">
-                <Link to="/add-product">
-                    <button type="button">상품 등록</button>
-                </Link>
+                <Link to="/products/new">
+                    <button type="button">상품 등록</button>   
+                </Link> 
             </div>
         </div>
     )
