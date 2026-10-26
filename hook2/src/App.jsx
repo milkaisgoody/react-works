@@ -6,7 +6,12 @@ import './App.css'
 import UseRefEx from './components/UseRefEx'
 import InputFocus from './components/InputFocus'
 import Counter from './components/Counter'
+import CountReducer from './hooks/CountReducer'
+import Bankreducer from './hooks/Bankreducer'
+import UserParent from './use_context/UserParent'
+import CounterReducer from './apps/CounterReducer'
 
+//내보내기 할때 default가 없는 경우 - 중괄호로 묶는다. 
 function App() {
 
   return (
@@ -14,7 +19,11 @@ function App() {
       <section className="app">
         {/* <UseRefEx /> */}
         {/* <InputFocus /> */}
-        <Counter />
+        {/* <Counter /> */}
+        {/* <CountReducer /> */}
+        {/* {<Bankreducer />} */}
+        {/*<UserParent />*/}
+        {<CounterReducer />}
       </section>
     </>
   )
