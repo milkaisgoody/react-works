@@ -10,6 +10,8 @@ import CountReducer from './hooks/CountReducer'
 import Bankreducer from './hooks/Bankreducer'
 import UserParent from './use_context/UserParent'
 import CounterReducer from './apps/CounterReducer'
+import ButtonSample from './styling/ButtonSample'
+import Blocks from './styling/Blocks'
 
 //내보내기 할때 default가 없는 경우 - 중괄호로 묶는다. 
 function App() {
@@ -23,7 +25,9 @@ function App() {
         {/* <CountReducer /> */}
         {/* {<Bankreducer />} */}
         {/*<UserParent />*/}
-        {<CounterReducer />}
+        {/* {<CounterReducer />} */}
+        {/* <ButtonSample /> */}
+        <Blocks />
       </section>
     </>
   )
